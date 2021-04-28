@@ -1,12 +1,33 @@
 <!-- <hello name="{{ name }}"></hello> -->
 
-<app-sub-component description="with i18n" firstTest="braces: {{ firstTest }}:firstTest:"
-  [secondTest]="'brackets: ' + secondTest" thirdTest="braces again: {{ thirdTest }}"
-  forthTest="multi: {{ firstTest }} {{ secondTest }} {{ thirdTest }}" i18n-firstTest="@@test_one:firstTest:"
-  i18n-secondTest="@@test_two" i18n-thirdTest="@@test_three:thirdTest:" i18n-forthTest="@@test_four">
+<app-sub-component
+  description="with i18n"
+  firstTest="braces: expected:1, actual:{{ firstTest }}"
+  [secondTest]="'brackets: expected:2, actual:' + secondTest"
+  thirdTest="braces again: expected:3, actual:{{ thirdTest }}"
+  forthTest="multi: expected:1 2 3, actual:{{ firstTest }} {{ secondTest }} {{
+    thirdTest
+  }}"
+  i18n-firstTest
+  i18n-secondTest
+  i18n-thirdTest
+  i18n-forthTest
+>
 </app-sub-component>
 
+<app-sub-component
+  description="without i18n"
+  firstTest="braces: expected:1, actual:{{ firstTest }}"
+  [secondTest]="'brackets: expected:2, actual:' + secondTest"
+  thirdTest="braces again: expected:3, actual:{{ thirdTest }}"
+  forthTest="multi: expected:1 2 3, actual:{{ firstTest }} {{ secondTest }} {{
+    thirdTest
+  }}"
+></app-sub-component>
 
-<app-sub-component description="without i18n" firstTest="braces: {{ firstTest }}"
-  [secondTest]="'brackets: ' + secondTest" thirdTest="braces again: {{ thirdTest }}"
-  forthTest="multi: {{ firstTest }} {{ secondTest }} {{ thirdTest }}"></app-sub-component>
+<div>
+  <h2>Raw values</h2>
+  <p>firstTest: {{ firstTest }}</p>
+  <p>secondTest: {{ secondTest }}</p>
+  <p>thirdTest: {{ thirdTest }}</p>
+</div>
